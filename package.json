@@ -1,0 +1,22 @@
+{
+  "name": "music-akinator-backend",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/meta-coders/music-akinator-backend.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/meta-coders/music-akinator-backend/issues"
+  },
+  "homepage": "https://github.com/meta-coders/music-akinator-backend#readme",
+  "dependencies": {
+    "fastify": "^2.11.0"
+  }
+}
