@@ -17,6 +17,9 @@
   },
   "homepage": "https://github.com/meta-coders/music-akinator-backend#readme",
   "dependencies": {
-    "fastify": "^2.11.0"
+    "fastify": "^2.11.0",
+    "fastify-multipart": "^1.0.4",
+    "request": "^2.88.0",
+    "uuid": "^3.4.0"
   }
 }
