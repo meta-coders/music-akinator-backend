@@ -6,6 +6,8 @@ const request = require('request');
 const { AUDD_API_TOKEN, AUDD_URL, DEEZER_URL } = process.env;
 
 const STATUS_SUCCESS = 'success';
+const STATUS_RECOGNITION_FAILED = 'Recognition Failed';
+const STATUS_DEEZER_NOT_FOUND = 'Deezer Id Not Found';
 const AUDD_REQUEST_URL = new url.URL('/findLyrics', AUDD_URL);
 const DEEZER_REQUEST_URL = new url.URL('/search/track', DEEZER_URL);
 
@@ -55,14 +57,14 @@ const recognizeByLyrics = async (req, reply) => {
 
   const recognitionResult = await findByLyrics(query);
   if (!recognitionResult) {
-    reply.status(500).send();
+    reply.status(500).send({ status: STATUS_RECOGNITION_FAILED });
     return;
   }
 
   const [songInfo] = recognitionResult;
-  const deezerResult = await findTrack(normalize(songInfo['full_title']));
-  if (!deezerResult) {
-    reply.status(500).send();
+  const deezerResult = await findTrack(normalize(songInfo['title']));
+  if (!deezerResult || !deezerResult.length) {
+    reply.status(500).send({ status: STATUS_DEEZER_NOT_FOUND });
     return;
   }
 
