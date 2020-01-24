@@ -67,7 +67,7 @@ const recognizeByLyrics = async (req, reply) => {
   }
 
   const [song] = deezerResult;
-  reply.send(song);
+  reply.send(song.id);
 };
 
 module.exports = recognizeByLyrics;
