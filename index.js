@@ -12,4 +12,4 @@ fastify.register(require('fastify-static'), {
 });
 fastify.register(require('./src/routes'));
 
-fastify.listen(process.env.PORT).catch(console.error);
+fastify.listen(process.env.PORT, '0.0.0.0').catch(console.error);
