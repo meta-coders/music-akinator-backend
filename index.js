@@ -1,7 +1,9 @@
 'use strict';
 
 const path = require('path');
-const fastify = require('fastify')();
+const fastify = require('fastify')({
+  logger: true
+});
 
 fastify.register(require('fastify-multipart'));
 fastify.register(require('fastify-static'), {
