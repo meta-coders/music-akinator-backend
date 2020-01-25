@@ -2,6 +2,7 @@
 
 const fs = require('fs');
 const os = require('os');
+const url = require('url');
 const path = require('path');
 const fsPromises = fs.promises;
 
@@ -10,6 +11,8 @@ const request = require('request');
 
 const TMP_DIR = os.tmpdir();
 const { AUDD_API_TOKEN, AUDD_URL } = process.env;
+
+const STATUS_RECOGNITION_FAILED = 'Recognition Failed';
 
 const recognizeByHumming = async (req, reply) => {
   const randomHash = uuidv4();
@@ -32,15 +35,15 @@ const recognizeByHumming = async (req, reply) => {
     request.post(options, async (err, res, body) => {
       await fsPromises.unlink(tmpFilePath);
 
-      if (err) {
-        reply.code(500).send();
+      if (err || !body) {
+        reply.status(500).send({ status: STATUS_RECOGNITION_FAILED });
         return;
       }
 
       const { status, result } = JSON.parse(body);
 
       if (status !== 'success') {
-        reply.code(500).send();
+        reply.status(500).send({ status: STATUS_RECOGNITION_FAILED });
         return;
       }
 
