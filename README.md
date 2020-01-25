@@ -1,5 +1,11 @@
 # MusicAkinator
 
+## Застосунок
+
+Застосунок доступний за адресою https://workers-music-akinator.herokuapp.com 
+
+## Початок роботи
+
 Для коректної роботи застосунку на локальній машині необхідно:
 
 - [Node.js](https://nodejs.org/en/), [NPM](https://www.npmjs.com/)
