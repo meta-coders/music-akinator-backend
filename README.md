@@ -21,8 +21,8 @@ git clone https://github.com/meta-coders/music-akinator-backend.git
 
 - `PORT` - порт мережевого інтерфейсу, на якому буде піднято сервер застосунку.
 - `AUDD_API_TOKEN` - ключ API для ресурсу `Audd`.
-- `AUDD_URL` - адреса `Audd API`.
-- `DEEZER_URL` - адреса `Deezer API`. 
+- `AUDD_URL` - адреса `Audd API` - https://api.audd.io/.
+- `DEEZER_URL` - адреса `Deezer API` - https://api.deezer.com/. 
 
 ## Запуск
 
